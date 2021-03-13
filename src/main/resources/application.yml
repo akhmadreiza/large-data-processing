@@ -15,6 +15,15 @@ spring:
       settings:
         web-allow-others: true
 
+management:
+  endpoints:
+    jmx:
+      exposure:
+        include: '*'
+    web:
+      exposure:
+        include: '*'
+
 system:
   config:
     data:
