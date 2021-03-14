@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import static com.akhmadreiza.research.largedataprocessing.constants.QueryConstant.SELECT_ALL_FROM_MASTER_TABLE;
+
 @Service
 public class JdbcTemplateQueryDataProcessor implements DataProcessor {
 
@@ -22,7 +24,7 @@ public class JdbcTemplateQueryDataProcessor implements DataProcessor {
     public List<MasterTableDto> selectAllData() {
         LOGGER.info("getting data from TBL_MASTER and fetch into array list");
         long queryStart = System.currentTimeMillis();
-        List<MasterTableDto> result = jdbcTemplate.query("SELECT * FROM TBL_MASTER", (rs, rowNum) -> {
+        List<MasterTableDto> result = jdbcTemplate.query(SELECT_ALL_FROM_MASTER_TABLE, (rs, rowNum) -> {
             MasterTableDto masterTableDto = new MasterTableDto();
             masterTableDto.setId(rs.getString("ID"));
             masterTableDto.setName(rs.getString("NAME"));

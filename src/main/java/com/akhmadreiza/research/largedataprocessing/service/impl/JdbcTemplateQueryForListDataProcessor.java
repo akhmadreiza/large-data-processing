@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import static com.akhmadreiza.research.largedataprocessing.constants.QueryConstant.SELECT_ALL_FROM_MASTER_TABLE;
+
 @Service
 public class JdbcTemplateQueryForListDataProcessor implements DataProcessor {
 
@@ -24,7 +26,7 @@ public class JdbcTemplateQueryForListDataProcessor implements DataProcessor {
     public List<MasterTableDto> selectAllData() {
         LOGGER.info("getting data from TBL_MASTER");
         long queryStart = System.currentTimeMillis();
-        List<Map<String, Object>> result = jdbcTemplate.queryForList("SELECT * FROM TBL_MASTER;");
+        List<Map<String, Object>> result = jdbcTemplate.queryForList(SELECT_ALL_FROM_MASTER_TABLE);
         long queryFinish = System.currentTimeMillis();
         LOGGER.info("successfully getting {} of data from TBL_MASTER ({}ms)", result.size(), queryFinish - queryStart);
 
