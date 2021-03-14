@@ -1,5 +1,9 @@
 package com.akhmadreiza.research.largedataprocessing.service;
 
+import com.akhmadreiza.research.largedataprocessing.domain.MasterTableDto;
+
+import java.util.List;
+
 public interface DataProcessor {
-    void selectAllData();
+    List<MasterTableDto> selectAllData();
 }
